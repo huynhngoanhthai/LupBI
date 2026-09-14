@@ -25,7 +25,7 @@ import { AdminModule } from './modules/admin/admin.module';
     I18nModule.forRoot({
       fallbackLanguage: 'vi',
       loaderOptions: {
-        path: path.join(process.cwd(), 'i18n/api/'),
+        path: path.resolve(__dirname, '../../../i18n/api'),
         watch: true,
       },
       resolvers: [

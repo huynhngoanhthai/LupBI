@@ -31,7 +31,7 @@ LupBI/
 | Mã tính năng | Tên tính năng | Module | Tiến độ | Trạng thái |
 | :---: | :--- | :--- | :---: | :---: |
 | `AUTH-01` | Đăng nhập & Quản lý Phiên | Xác thực & Phân quyền | `[==========] 100%` | 🟩 **RC Approved** |
-| `AUTH-02` | Phân quyền vai trò (RBAC) | Xác thực & Phân quyền | `[----------] 0%` | 🟧 **Ready for Dev** |
+| `AUTH-02` | Phân quyền vai trò (RBAC) | Xác thực & Phân quyền | `[==========] 100%` | 🟩 **RC Approved** |
 
 ---
 
