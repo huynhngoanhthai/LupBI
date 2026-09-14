@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  # 1. PostgreSQL Database Service
+  postgres:
+    image: postgres:16-alpine
+    container_name: lupbi-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-lupbi_db}
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-lupbi_db}']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # 2. Monorepo App Service (Khởi chạy đồng thời cả API và Web)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lupbi-app
+    restart: always
+    environment:
+      PORT: 3000
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-lupbi_db}?schema=public
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-lupbi_jwt_access_secret_key_development_2026}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-lupbi_jwt_refresh_secret_key_development_2026}
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+    ports:
+      - '3000:3000'
+      - '3001:3001'
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
