@@ -11,7 +11,8 @@ Thư mục `.agent` chứa các quy định (**Rules**) và kỹ năng (**Skills
 ├── README.md                            # Tài liệu hướng dẫn này
 ├── rules/                               # Định nghĩa các Nguyên tắc & Tiêu chuẩn (Rules)
 │   ├── 00-general-rules.md              # Quy tắc dùng chung cho dự án LupBI
-│   └── ba-business-analyst.md           # Quy tắc phân tích nghiệp vụ & tạo file kế hoạch cho BA
+│   ├── ba-business-analyst.md           # Quy tắc phân tích nghiệp vụ & tạo file kế hoạch cho BA
+│   └── dev-developer.md                 # Quy tắc & Bộ công nghệ chuẩn dành cho Developer
 ├── plan/                                # Nơi lưu trữ các bản thiết kế & phân tích tính năng
 │   ├── Đăng nhập & Quản lý Phiên AUTH-01.md
 │   └── Phân quyền vai trò (RBAC) AUTH-02.md
@@ -20,7 +21,9 @@ Thư mục `.agent` chứa các quy định (**Rules**) và kỹ năng (**Skills
     │   └── SKILL.md
     ├── ba-user-story-generator/         # Skill: Viết User Story & Acceptance Criteria chuẩn BDD
     │   └── SKILL.md
-    └── ba-sync-backlog/                 # Skill: Đồng bộ & tra cứu backlog từ Google Sheet LupBI
+    ├── ba-sync-backlog/                 # Skill: Đồng bộ & tra cứu backlog từ Google Sheet LupBI
+    │   └── SKILL.md
+    └── dev-implement-feature/           # Skill: Triển khai tính năng kỹ thuật đồng bộ FE & BE
         └── SKILL.md
 ```
 

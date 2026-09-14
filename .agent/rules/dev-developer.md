@@ -52,3 +52,11 @@ Mọi quyết định lập trình, thiết kế kiến trúc và cài đặt th
 ## 4. Xử Lý Lỗi & Logging
 - Tránh nuốt ngoại lệ (silent try/catch mà không log lỗi).
 - Log lỗi đầy đủ ngữ cảnh để hỗ trợ trace bug nhanh chóng.
+
+## 5. Tối Ưu CSDL & Triệt Tiêu Lỗi N+1 Query (Zero N+1 Query Policy)
+- **Nghiêm cấm N+1 Query:** Không bao giờ thực thi truy vấn CSDL trong vòng lặp (`for`, `map`, `forEach`). Bắt buộc dùng Eager Loading (`include`, `select` trong Prisma), `JOIN` hoặc batching (`where: { id: { in: ids } }`).
+- **Xử lý tập dữ liệu lớn:**
+  - Luôn áp dụng phân trang (Pagination với cursor hoặc `take/skip`) cho các API danh sách.
+  - Áp đặt giới hạn `maxLimit` (ví dụ: `take <= 1000`) để tránh tràn RAM server (OOM).
+- **Kiểm thử hiệu năng:** Bắt buộc viết test case giả lập dữ liệu lớn và audit log query để đảm bảo số câu query là hằng số \(O(1)\).
+

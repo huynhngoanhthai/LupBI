@@ -12,7 +12,8 @@ Thư mục `.agent` chứa các quy định (**Rules**) và kỹ năng (**Skills
 ├── README.md                            # Tài liệu giới thiệu dự án & tổng quan thư mục
 ├── rules/                               # Định nghĩa các Nguyên tắc & Tiêu chuẩn (Rules)
 │   ├── 00-general-rules.md              # Quy tắc dùng chung cho tất cả các vai trò
-│   └── ba-business-analyst.md           # Quy tắc dành cho Business Analyst
+│   ├── ba-business-analyst.md           # Quy tắc dành cho Business Analyst
+│   └── dev-developer.md                 # Quy tắc & Bộ công nghệ chuẩn dành cho Developer
 ├── plan/                                # Thư mục lưu trữ kế hoạch & thiết kế tính năng
 │   ├── Đăng nhập & Quản lý Phiên AUTH-01.md
 │   └── Phân quyền vai trò (RBAC) AUTH-02.md
@@ -21,7 +22,9 @@ Thư mục `.agent` chứa các quy định (**Rules**) và kỹ năng (**Skills
     │   └── SKILL.md
     ├── ba-user-story-generator/         # Skill: Viết User Story & Acceptance Criteria chuẩn BDD
     │   └── SKILL.md
-    └── ba-sync-backlog/                 # Skill: Đồng bộ & tra cứu backlog từ Google Sheet LupBI
+    ├── ba-sync-backlog/                 # Skill: Đồng bộ & tra cứu backlog từ Google Sheet LupBI
+    │   └── SKILL.md
+    └── dev-implement-feature/           # Skill: Triển khai tính năng kỹ thuật đồng bộ FE & BE
         └── SKILL.md
 ```
 
