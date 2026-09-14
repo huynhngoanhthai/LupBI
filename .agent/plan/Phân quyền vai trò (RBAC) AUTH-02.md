@@ -105,3 +105,13 @@ flowchart TD
     E -- Hợp lệ --> G[Cho phép gọi tiếp Controller Handler]
     G --> H[Trả về kết quả 200 OK]
 ```
+
+---
+
+## 📊 Tiến Độ Hoàn Thành & Ghi Chú Nghiệm Thu (QA Sign-off & Feedback)
+
+- **Tiến độ hoàn thành:** `0%` (Chờ triển khai & kiểm thử)
+- **Trạng thái:** `Ready for Dev`
+
+### 📝 Ghi Chú & Nhận Xét Từ QA (Tester Notes)
+*(Chờ QA chạy skill kiểm thử nghiệm thu `qa-test-execution` để điền phần trăm % hoàn thành và các nhận xét về Lỗi nghiệp vụ, UI xấu, Tốc độ chậm, Khó thao tác, Sai cấu trúc...)*

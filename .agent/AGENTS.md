@@ -13,18 +13,18 @@ Thư mục `.agent` chứa các quy định (**Rules**) và kỹ năng (**Skills
 ├── rules/                               # Định nghĩa các Nguyên tắc & Tiêu chuẩn (Rules)
 │   ├── 00-general-rules.md              # Quy tắc dùng chung cho tất cả các vai trò
 │   ├── ba-business-analyst.md           # Quy tắc dành cho Business Analyst
-│   └── dev-developer.md                 # Quy tắc & Bộ công nghệ chuẩn dành cho Developer
+│   └── qa-tester.md                     # Quy tắc dành cho QA / Tester
 ├── plan/                                # Thư mục lưu trữ kế hoạch & thiết kế tính năng
 │   ├── Đăng nhập & Quản lý Phiên AUTH-01.md
 │   └── Phân quyền vai trò (RBAC) AUTH-02.md
 └── skills/                              # Định nghĩa các Kỹ năng Quy trình (Skills)
-    ├── ba-requirements-analysis/        # Skill: Phân tích & làm rõ yêu cầu nghiệp vụ
+    ├── ba-requirements-analysis/        # Skill: Phân tích nghiệp vụ, tạo kịch bản RC & khung tiến độ %
     │   └── SKILL.md
     ├── ba-user-story-generator/         # Skill: Viết User Story & Acceptance Criteria chuẩn BDD
     │   └── SKILL.md
     ├── ba-sync-backlog/                 # Skill: Đồng bộ & tra cứu backlog từ Google Sheet LupBI
     │   └── SKILL.md
-    └── dev-implement-feature/           # Skill: Triển khai tính năng kỹ thuật đồng bộ FE & BE
+    └── qa-test-execution/               # Skill QA: Kiểm thử RC, điền % hoàn thành & ghi chú lỗi UI/Speed/Logic
         └── SKILL.md
 ```
 
@@ -34,37 +34,10 @@ Thư mục `.agent` chứa các quy định (**Rules**) và kỹ năng (**Skills
 
 ### 1. Quy tắc đặt tên Rules (`.agent/rules/`)
 - Tên file: `<role>-<topic>.md` (sử dụng chữ thường, phân cách bởi dấu gạch nối `-`).
-- Ví dụ: `ba-business-analyst.md`.
+- Ví dụ: `ba-business-analyst.md`, `qa-tester.md`.
 - Các quy tắc chung áp dụng toàn dự án dùng tiền tố `00-` (ví dụ: `00-general-rules.md`).
 
 ### 2. Quy tắc đặt tên Skills (`.agent/skills/`)
 - Thư mục Skill: `<role>-<skill-name>/` (sử dụng chữ thường, phân cách bởi dấu gạch nối `-`).
 - File chính trong thư mục skill: Bắt buộc đặt tên là **`SKILL.md`**.
 - YAML Frontmatter ở đầu file `SKILL.md` bắt buộc phải có `name` (trùng tên thư mục) và `description` (mô tả rõ vai trò và thời điểm kích hoạt skill).
-
----
-
-## 🚀 Hướng Dẫn Thêm Mới Skill / Rule
-
-### Đổi mới/Thêm một Rule:
-Tạo file Markdown mới trong `.agent/rules/` theo tiền tố vai trò tương ứng và viết rõ các yêu cầu/ràng buộc.
-
-### Đổi mới/Thêm một Skill:
-Tạo thư mục mới trong `.agent/skills/<role>-<skill-name>/` và tạo file `SKILL.md` với định dạng:
-
-```markdown
----
-name: <role>-<skill-name>
-description: >-
-  Mô tả chi tiết khi nào Agent nên kích hoạt kỹ năng này. Viết ở ngôi thứ 3.
----
-
-# Tên Kỹ Năng
-
-## Mục tiêu
-...
-
-## Các Bước Thực Hiện
-1. ...
-2. ...
-```
