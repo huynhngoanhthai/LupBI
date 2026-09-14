@@ -2,20 +2,22 @@
 // Enums
 // ─────────────────────────────────────────
 
-export enum UserRole {
-  ADMIN = 'ADMIN',
-  CREATOR = 'CREATOR',
-  VIEWER = 'VIEWER',
-}
+export const UserRole = {
+  ADMIN: 'ADMIN',
+  CREATOR: 'CREATOR',
+  VIEWER: 'VIEWER',
+} as const;
+export type UserRole = (typeof UserRole)[keyof typeof UserRole];
 
-export enum AuthErrorCode {
-  INVALID_CREDENTIALS = 'INVALID_CREDENTIALS',
-  ACCOUNT_INACTIVE = 'ACCOUNT_INACTIVE',
-  TOKEN_EXPIRED = 'TOKEN_EXPIRED',
-  TOKEN_INVALID = 'TOKEN_INVALID',
-  REFRESH_TOKEN_MISSING = 'REFRESH_TOKEN_MISSING',
-  TOO_MANY_REQUESTS = 'TOO_MANY_REQUESTS',
-}
+export const AuthErrorCode = {
+  INVALID_CREDENTIALS: 'INVALID_CREDENTIALS',
+  ACCOUNT_INACTIVE: 'ACCOUNT_INACTIVE',
+  TOKEN_EXPIRED: 'TOKEN_EXPIRED',
+  TOKEN_INVALID: 'TOKEN_INVALID',
+  REFRESH_TOKEN_MISSING: 'REFRESH_TOKEN_MISSING',
+  TOO_MANY_REQUESTS: 'TOO_MANY_REQUESTS',
+} as const;
+export type AuthErrorCode = (typeof AuthErrorCode)[keyof typeof AuthErrorCode];
 
 // ─────────────────────────────────────────
 // Auth DTOs / Interfaces

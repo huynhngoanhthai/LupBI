@@ -65,17 +65,17 @@
 ## 🏗️ Phân Phối Tác Vụ Kỹ Thuật (Task Breakdown)
 
 ### 1. Frontend (Next.js / React TS)
-- [ ] **UI Component:** Bố cục Form Login thanh lịch, ô nhập Email, Password, nút Toggle hiển thị mật khẩu, Nút Submit trạng thái loading.
-- [ ] **State Management:** Tạo `AuthContext` hoặc Zustand Store quản lý trạng thái `user`, `isAuthenticated`, `isLoading`.
-- [ ] **Route Protection:** Cấu hình Next.js Middleware hoặc HOC `withAuth` bảo vệ các private routes (`/dashboard`, `/queries`, `/settings`), tự động redirect về `/login` nếu chưa auth.
-- [ ] **API Interceptor:** Cấu hình Axios Response Interceptor tự động bắt mã lỗi `401` để trigger làm mới token (Refresh Token).
+- [x] **UI Component:** Bố cục Form Login thanh lịch, ô nhập Email, Password, nút Toggle hiển thị mật khẩu, Nút Submit trạng thái loading.
+- [x] **State Management:** Tạo `AuthContext` hoặc Zustand Store quản lý trạng thái `user`, `isAuthenticated`, `isLoading`.
+- [x] **Route Protection:** Cấu hình Next.js Middleware hoặc HOC `withAuth` bảo vệ các private routes (`/dashboard`, `/queries`, `/settings`), tự động redirect về `/login` nếu chưa auth.
+- [x] **API Interceptor:** Cấu hình Axios Response Interceptor tự động bắt mã lỗi `401` để trigger làm mới token (Refresh Token).
 
 ### 2. Backend (Node.js / Express / NestJS TS)
-- [ ] **Database Schema:** Bảng `users` (id, email, password_hash, full_name, role_id, is_active, created_at, updated_at).
-- [ ] **Security Hashing:** Sử dụng thư viện `bcrypt` với salt rounds >= 10 để hash mật khẩu người dùng.
-- [ ] **Token Generation:** Đăng ký hàm sign/verify JWT (Access Token payload gồm `userId`, `role`).
-- [ ] **Session Cookie:** Lưu Refresh Token vào HTTP-Only, Secure, SameSite Cookie để chống tấn công XSS.
-- [ ] **Endpoints Core:**
+- [x] **Database Schema:** Bảng `users` (id, email, password_hash, full_name, role, is_active, created_at, updated_at).
+- [x] **Security Hashing:** Sử dụng thư viện `bcrypt` với salt rounds >= 10 để hash mật khẩu người dùng.
+- [x] **Token Generation:** Đăng ký hàm sign/verify JWT (Access Token payload gồm `userId`, `role`).
+- [x] **Session Cookie:** Lưu Refresh Token vào HTTP-Only, Secure, SameSite Cookie để chống tấn công XSS.
+- [x] **Endpoints Core:**
   - `POST /api/v1/auth/login`: Xác thực thông tin & trả về token.
   - `POST /api/v1/auth/refresh`: Cấp lại Access Token mới.
   - `POST /api/v1/auth/logout`: Xóa Refresh Token Cookie & hủy phiên.
@@ -94,7 +94,7 @@
 
 | STT | Tên kịch bản | Thao tác kiểm thử (Test Steps) | Kết quả kỳ vọng (Expected Output) | Trạng thái RC |
 | :---: | :--- | :--- | :--- | :---: |
-| **RC-01** | Test Login Đúng | Nhập `admin@lupbi.com` / `Password123!` -> Bấm Đăng nhập | Đăng nhập thành công, chuyển hướng `/dashboard`, Cookie có `refreshToken` | 🟩 PASS |
+| **RC-01** | Test Login Đúng | Nhập `admin@lupbi.com` / `Admin@123!` -> Bấm Đăng nhập | Đăng nhập thành công, chuyển hướng `/dashboard`, Cookie có `refreshToken` | 🟩 PASS |
 | **RC-02** | Test Login Sai Mật Khẩu | Nhập `admin@lupbi.com` / `WrongPass` -> Bấm Đăng nhập | Báo lỗi 401 "Tên đăng nhập hoặc mật khẩu không chính xác", giữ nguyên màn hình | 🟩 PASS |
 | **RC-03** | Test Lockout Brute Force | Nhập sai mật khẩu liên tiếp 5 lần trong 1 phút | Báo lỗi 429 Too Many Requests, khóa thử lại trong 60 giây | 🟩 PASS |
 | **RC-04** | Test Silent Refresh Token | Xóa `accessToken` ở Client LocalStorage/Memory -> Gọi API | Axios Interceptor tự gọi `/auth/refresh` lấy Access Token mới không gián đoạn | 🟩 PASS |
