@@ -31,5 +31,28 @@
   },
   "language": {
     "select_label": "语言"
+  },
+  "datasource": {
+    "title": "数据库连接管理 (CONN-01)",
+    "add_button": "添加新数据源",
+    "name": "连接名称",
+    "type": "数据库类型",
+    "host": "主机名 / Host",
+    "port": "端口 (Port)",
+    "database": "数据库名称",
+    "username": "用户名",
+    "password": "密码",
+    "ssl": "启用 SSL",
+    "test_button": "测试连接",
+    "testing": "正在测试连接...",
+    "test_success": "连接测试成功！",
+    "test_failed": "连接测试失败：",
+    "save_button": "保存连接"
+  },
+  "schema": {
+    "explorer_title": "数据结构浏览 (CONN-02)",
+    "sync_button": "同步 Schema",
+    "syncing": "正在同步 Schema...",
+    "search_placeholder": "Search table"
   }
 }

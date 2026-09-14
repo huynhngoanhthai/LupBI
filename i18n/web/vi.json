@@ -31,5 +31,28 @@
   },
   "language": {
     "select_label": "Ngôn ngữ"
+  },
+  "datasource": {
+    "title": "Quản lý Kết nối Database (CONN-01)",
+    "add_button": "Thêm Nguồn Dữ Liệu Mới",
+    "name": "Tên kết nối",
+    "type": "Loại Database",
+    "host": "Host / Hostname",
+    "port": "Cổng (Port)",
+    "database": "Tên Database",
+    "username": "Tên Đăng Nhập (Username)",
+    "password": "Mật khẩu (Password)",
+    "ssl": "Bật mã hóa SSL",
+    "test_button": "Kiểm tra kết nối (Test Ping)",
+    "testing": "Đang kiểm tra kết nối...",
+    "test_success": "Kết nối thành công!",
+    "test_failed": "Kết nối thất bại:",
+    "save_button": "Lưu kết nối"
+  },
+  "schema": {
+    "explorer_title": "Cấu trúc dữ liệu (Schema Explorer CONN-02)",
+    "sync_button": "Đồng bộ Schema (Sync)",
+    "syncing": "Đang quét Schema...",
+    "search_placeholder": "Tìm kiếm bảng"
   }
 }

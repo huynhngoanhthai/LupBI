@@ -1,5 +1,4 @@
 // Prisma schema - LupBI metadata database (SQLite for dev)
-// Tham khảo: https://pris.ly/d/prisma-schema
 
 generator client {
   provider = "prisma-client-js"
@@ -15,10 +14,59 @@ model User {
   email        String   @unique
   passwordHash String   @map("password_hash")
   fullName     String   @map("full_name")
-  role         String   @default("VIEWER") // UserRole enum value
+  role         String   @default("VIEWER") // UserRole enum
   isActive     Boolean  @default(true) @map("is_active")
   createdAt    DateTime @default(now()) @map("created_at")
   updatedAt    DateTime @updatedAt @map("updated_at")
 
   @@map("users")
+}
+
+model DataSource {
+  id                String   @id @default(cuid())
+  name              String
+  type              String   // POSTGRES | MYSQL | CLICKHOUSE | SQLITE
+  host              String?
+  port              Int?
+  database          String
+  username          String?
+  encryptedPassword String?  @map("encrypted_password")
+  ssl               Boolean  @default(false)
+  isActive          Boolean  @default(true) @map("is_active")
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  tables CachedTable[]
+
+  @@map("datasources")
+}
+
+model CachedTable {
+  id           String   @id @default(cuid())
+  dataSourceId String   @map("data_source_id")
+  schema       String   @default("public")
+  tableName    String   @map("table_name")
+  tableType    String   @default("TABLE") // TABLE | VIEW
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  dataSource DataSource     @relation(fields: [dataSourceId], references: [id], onDelete: Cascade)
+  columns    CachedColumn[]
+
+  @@unique([dataSourceId, schema, tableName])
+  @@map("cached_tables")
+}
+
+model CachedColumn {
+  id             String  @id @default(cuid())
+  tableId        String  @map("table_id")
+  name           String
+  dataType       String  @map("data_type")
+  normalizedType String  @map("normalized_type") // STRING | NUMBER | DATETIME | BOOLEAN
+  isNullable     Boolean @default(true) @map("is_nullable")
+  isPrimaryKey   Boolean @default(false) @map("is_primary_key")
+  position       Int     @default(0)
+
+  table CachedTable @relation(fields: [tableId], references: [id], onDelete: Cascade)
+
+  @@map("cached_columns")
 }

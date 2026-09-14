@@ -14,7 +14,7 @@ export default function LanguageSelector() {
   const { lang, setLanguage } = useI18nStore();
 
   return (
-    <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-lg p-1">
+    <div className="flex items-center gap-1 bg-slate-900/80 border border-slate-800 rounded-lg p-1">
       <Globe className="w-4 h-4 text-slate-400 ml-1.5 mr-0.5" />
       {languages.map((item) => (
         <button
@@ -22,11 +22,12 @@ export default function LanguageSelector() {
           onClick={() => setLanguage(item.code)}
           className={`px-2.5 py-1 text-xs rounded-md font-medium transition-all ${
             lang === item.code
-              ? 'bg-blue-600 text-white shadow-sm'
+              ? 'bg-blue-600 text-white shadow-sm font-semibold'
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
           }`}
         >
-          {item.flag} {item.label}
+          <span className="mr-1">{item.flag}</span>
+          {item.label}
         </button>
       ))}
     </div>

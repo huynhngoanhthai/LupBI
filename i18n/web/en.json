@@ -31,5 +31,28 @@
   },
   "language": {
     "select_label": "Language"
+  },
+  "datasource": {
+    "title": "Database Connection Management (CONN-01)",
+    "add_button": "Add New Data Source",
+    "name": "Connection Name",
+    "type": "Database Type",
+    "host": "Host / Hostname",
+    "port": "Port",
+    "database": "Database Name",
+    "username": "Username",
+    "password": "Password",
+    "ssl": "Enable SSL",
+    "test_button": "Test Connection",
+    "testing": "Testing connection...",
+    "test_success": "Connection test successful!",
+    "test_failed": "Connection test failed:",
+    "save_button": "Save Connection"
+  },
+  "schema": {
+    "explorer_title": "Schema Explorer (CONN-02)",
+    "sync_button": "Sync Schema",
+    "syncing": "Syncing Schema...",
+    "search_placeholder": "cột..."
   }
 }

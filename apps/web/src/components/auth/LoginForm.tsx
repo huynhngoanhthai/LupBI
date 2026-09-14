@@ -64,7 +64,7 @@ export default function LoginForm() {
     onSuccess: (data) => {
       setAuth(data.user, data.accessToken);
       toast.success(t('auth.login_success_toast', 'Đăng nhập thành công!'));
-      router.replace(callbackUrl);
+      window.location.href = callbackUrl;
     },
     onError: (err) => {
       const msg = err.response?.data?.message ?? t('auth.login_failed_toast', 'Đăng nhập thất bại.');

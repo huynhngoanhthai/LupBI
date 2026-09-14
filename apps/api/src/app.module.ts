@@ -7,13 +7,36 @@ import {
   AcceptLanguageResolver,
 } from 'nestjs-i18n';
 import * as path from 'path';
+import * as fs from 'fs';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { AdminModule } from './modules/admin/admin.module';
+import { DataSourceModule } from './modules/datasource/datasource.module';
+
+/**
+ * Hàm tìm kiếm đường dẫn thư mục i18n/api một cách triệt để
+ * Đảm bảo tìm thấy đúng thư mục bất kể khởi động từ Root, apps/api hay dist/
+ */
+function getI18nApiPath(): string {
+  const candidates = [
+    path.join(process.cwd(), 'i18n/api'),
+    path.join(process.cwd(), '../../i18n/api'),
+    path.join(process.cwd(), '../i18n/api'),
+    path.resolve(__dirname, '../../../../i18n/api'),
+    path.resolve(__dirname, '../../../i18n/api'),
+  ];
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      return candidate;
+    }
+  }
+
+  return path.join(process.cwd(), 'i18n/api');
+}
 
 @Module({
   imports: [
-    // Rate Limiting global - chống Brute Force (5 req / 60s tại /login)
     ThrottlerModule.forRoot([
       {
         ttl: 60_000,
@@ -21,11 +44,11 @@ import { AdminModule } from './modules/admin/admin.module';
       },
     ]),
 
-    // Multi-language i18n cho Backend - mặc định: vi
+    // Multi-language i18n cho Backend - đường dẫn an toàn tuyệt đối
     I18nModule.forRoot({
       fallbackLanguage: 'vi',
       loaderOptions: {
-        path: path.resolve(__dirname, '../../../i18n/api'),
+        path: getI18nApiPath(),
         watch: true,
       },
       resolvers: [
@@ -37,7 +60,8 @@ import { AdminModule } from './modules/admin/admin.module';
 
     PrismaModule,
     AuthModule,
-    AdminModule, // Module quản lý RBAC AUTH-02
+    AdminModule,
+    DataSourceModule,
   ],
 })
 export class AppModule {}

@@ -16,5 +16,17 @@
   "admin": {
     "user_not_found": "User not found",
     "role_updated": "User role updated successfully"
+  },
+  "datasource": {
+    "test_success": "Connection test successful!",
+    "test_failed": "Connection test failed:",
+    "not_found": "Data source not found",
+    "created": "Data source created successfully",
+    "updated": "Data source updated successfully",
+    "deleted": "Data source deleted successfully"
+  },
+  "schema": {
+    "sync_success": "Schema synchronized successfully",
+    "sync_failed": "Schema synchronization failed"
   }
 }

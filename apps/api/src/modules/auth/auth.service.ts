@@ -179,7 +179,7 @@ export class AuthService {
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax' as const,
       maxAge: REFRESH_TOKEN_TTL_MS,
-      path: '/api/v1/auth',
+      path: '/',
     };
   }
 }

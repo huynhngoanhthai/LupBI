@@ -64,9 +64,19 @@ Mọi quyết định lập trình, thiết kế kiến trúc và cài đặt th
 - **Cấu trúc lưu trữ:**
   - Backend: `./i18n/api/translate.csv` và các file ngôn ngữ đầu ra (`vi.json`, `en.json`, `cn.json`,...).
   - Frontend: `./i18n/web/translate.csv` và các file ngôn ngữ đầu ra (`vi.json`, `en.json`, `cn.json`,...).
+- **Quy tắc tìm đường dẫn i18n ở Backend (Triệt tiêu I18nError path not found):**
+  - Khi cấu hình `I18nModule` trong NestJS, tuyệt đối không dùng duy nhất `path.join(process.cwd(), 'i18n/api')`.
+  - Bắt buộc dùng hàm kiểm tra vị trí ứng viên bằng `fs.existsSync(...)` (`process.cwd()`, `../../i18n/api`, `../i18n/api`, `__dirname` relative) để ứng dụng luôn tìm thấy thư mục `i18n/api` bất kể được khởi động từ Root Monorepo, `apps/api`, `dist/` hay Jest tests.
 - **Quy trình cập nhật:**
   - Ngôn ngữ mặc định của ứng dụng là **Tiếng Việt (`vi`)**.
   - Khi thêm/sửa nhãn hoặc thông báo lỗi mới, Developer ghi vào `translate.csv` tương ứng và thực thi lệnh `pnpm i18n:split` để đồng bộ ra các file `.json`.
   - Không hardcode chuỗi ký tự hiển thị trực tiếp trong mã nguồn FE hay BE.
+
+## 7. Quy Định Kết Nối Frontend (UI) & Backend (API) Bắt Buộc
+- Bắt buộc triển khai đồng thời 100% cả Backend API (`apps/api`) và Frontend UI (`apps/web`) kết nối trực tiếp qua TanStack Query / Axios cho mọi tính năng.
+- Tuyệt đối nghiêm cấm việc báo hoàn thành hoặc nghiệm thu nếu chỉ phát triển phần Backend API mà chưa có giao diện Frontend UI tương ứng (hoặc ngược lại).
+- Mọi tính năng phải sẵn sàng cho người dùng thao tác trực quan trên trình duyệt.
+
+
 
 

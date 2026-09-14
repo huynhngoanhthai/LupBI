@@ -22,3 +22,22 @@ rbac.role_label,Vai trò,Role,角色
 rbac.actions,Thao tác,Actions,操作
 rbac.forbidden_alert,Bạn không có quyền truy cập chức năng này!,You do not have permission to access this feature!,您没有权限访问此功能！
 language.select_label,Ngôn ngữ,Language,语言
+datasource.title,Quản lý Kết nối Database (CONN-01),Database Connection Management (CONN-01),数据库连接管理 (CONN-01)
+datasource.add_button,Thêm Nguồn Dữ Liệu Mới,Add New Data Source,添加新数据源
+datasource.name,Tên kết nối,Connection Name,连接名称
+datasource.type,Loại Database,Database Type,数据库类型
+datasource.host,Host / Hostname,Host / Hostname,主机名 / Host
+datasource.port,Cổng (Port),Port,端口 (Port)
+datasource.database,Tên Database,Database Name,数据库名称
+datasource.username,Tên Đăng Nhập (Username),Username,用户名
+datasource.password,Mật khẩu (Password),Password,密码
+datasource.ssl,Bật mã hóa SSL,Enable SSL,启用 SSL
+datasource.test_button,Kiểm tra kết nối (Test Ping),Test Connection,测试连接
+datasource.testing,Đang kiểm tra kết nối...,Testing connection...,正在测试连接...
+datasource.test_success,Kết nối thành công!,Connection test successful!,连接测试成功！
+datasource.test_failed,Kết nối thất bại:,Connection test failed:,连接测试失败：
+datasource.save_button,Lưu kết nối,Save Connection,保存连接
+schema.explorer_title,Cấu trúc dữ liệu (Schema Explorer CONN-02),Schema Explorer (CONN-02),数据结构浏览 (CONN-02)
+schema.sync_button,Đồng bộ Schema (Sync),Sync Schema,同步 Schema
+schema.syncing,Đang quét Schema...,Syncing Schema...,正在同步 Schema...
+schema.search_placeholder,Tìm kiếm bảng, cột...,Search table, column...,搜索表、列...

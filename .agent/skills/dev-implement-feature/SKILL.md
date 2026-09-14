@@ -25,6 +25,10 @@ Kỹ năng này hướng dẫn Developer (Dev) trong dự án **LupBI** cách ti
      - Frontend i18n: `./i18n/web/` (chứa `translate.csv`, `vi.json`, `en.json`, `cn.json`,...)
    - **Tự động hóa phân tách:** Mỗi khi cập nhật file `translate.csv`, chạy lệnh `pnpm i18n:split` để tự động tách các cột ngôn ngữ thành các file JSON tương ứng.
 6. **Kiên Trì Đến Cùng (`/goal` Execution):** Giải quyết dứt điểm toàn bộ task trong checklist, tự sửa lỗi build/lint, không dừng lại giữa chừng khi tính năng chưa hoàn chỉnh.
+7. **Bắt Buộc Triển Khai Đồng Thời Frontend UI (`apps/web`) & Backend API (`apps/api`) Kết Nối 100%:**
+   - Mỗi tính năng khi phát triển (`dev-implement-feature`) bắt buộc phải triển khai **cả Backend API (`apps/api`) VÀ Frontend UI (`apps/web`)** kết nối trực tiếp với nhau thông qua TanStack Query (React Query) / Axios.
+   - Tuyệt đối nghiêm cấm việc chỉ viết code Backend API mà không xây dựng giao diện Frontend UI tương ứng (hoặc ngược lại).
+   - Chỉ được phép báo hoàn thành / nghiệm thu khi người dùng có thể trực tiếp thao tác trên giao diện Frontend (`apps/web`) và giao diện đó tương tác thực tế với Backend API (`apps/api`).
 
 ---
 

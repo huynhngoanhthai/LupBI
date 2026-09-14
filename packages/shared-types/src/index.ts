@@ -18,6 +18,15 @@ export enum AuthErrorCode {
   FORBIDDEN_ROLE = 'FORBIDDEN_ROLE',
 }
 
+export enum DataSourceType {
+  POSTGRES = 'POSTGRES',
+  MYSQL = 'MYSQL',
+  CLICKHOUSE = 'CLICKHOUSE',
+  SQLITE = 'SQLITE',
+}
+
+export type NormalizedColumnType = 'STRING' | 'NUMBER' | 'DATETIME' | 'BOOLEAN';
+
 // ─────────────────────────────────────────
 // Supported Languages
 // ─────────────────────────────────────────
@@ -29,34 +38,29 @@ export const DEFAULT_LANGUAGE: SupportedLanguage = 'vi';
 // Auth DTOs / Interfaces (AUTH-01)
 // ─────────────────────────────────────────
 
-/** POST /api/v1/auth/login - Request body */
 export interface LoginRequestDto {
   email: string;
   password: string;
 }
 
-/** POST /api/v1/auth/login - Response body */
 export interface LoginResponseDto {
   accessToken: string;
   user: UserProfileDto;
 }
 
-/** POST /api/v1/auth/refresh - Response body */
 export interface RefreshResponseDto {
   accessToken: string;
 }
 
-/** GET /api/v1/auth/me - Response body */
 export interface MeResponseDto {
   id: string;
   email: string;
   fullName: string;
   role: UserRole;
   isActive: boolean;
-  createdAt: string; // ISO 8601
+  createdAt: string;
 }
 
-/** Embedded user profile in login response */
 export interface UserProfileDto {
   id: string;
   email: string;
@@ -82,11 +86,105 @@ export interface UpdateUserRoleDto {
 }
 
 // ─────────────────────────────────────────
+// Data Source Management DTOs (CONN-01)
+// ─────────────────────────────────────────
+
+export interface CreateDataSourceDto {
+  name: string;
+  type: DataSourceType;
+  host?: string;
+  port?: number;
+  database: string;
+  username?: string;
+  password?: string;
+  ssl?: boolean;
+}
+
+export interface UpdateDataSourceDto {
+  name?: string;
+  type?: DataSourceType;
+  host?: string;
+  port?: number;
+  database?: string;
+  username?: string;
+  password?: string;
+  ssl?: boolean;
+  isActive?: boolean;
+}
+
+export interface DataSourceResponseDto {
+  id: string;
+  name: string;
+  type: DataSourceType;
+  host?: string;
+  port?: number;
+  database: string;
+  username?: string;
+  hasPassword: boolean; // 🔒 Mật khẩu tuyệt đối không bao giờ trả về nguyên văn
+  ssl: boolean;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface TestConnectionDto {
+  name?: string;
+  type: DataSourceType;
+  host?: string;
+  port?: number;
+  database: string;
+  username?: string;
+  password?: string;
+  ssl?: boolean;
+}
+
+export interface TestConnectionResultDto {
+  success: boolean;
+  latencyMs?: number;
+  message?: string;
+}
+
+// ─────────────────────────────────────────
+// Schema & Metadata DTOs (CONN-02)
+// ─────────────────────────────────────────
+
+export interface ColumnMetadataDto {
+  id: string;
+  name: string;
+  dataType: string;
+  normalizedType: NormalizedColumnType;
+  isNullable: boolean;
+  isPrimaryKey: boolean;
+  position: number;
+}
+
+export interface TableMetadataDto {
+  id: string;
+  schema: string;
+  tableName: string;
+  tableType: string; // 'TABLE' | 'VIEW'
+  columns: ColumnMetadataDto[];
+  updatedAt: string;
+}
+
+export interface DataSourceSchemaResponseDto {
+  dataSourceId: string;
+  tables: TableMetadataDto[];
+}
+
+export interface SyncSchemaResultDto {
+  success: boolean;
+  tableCount: number;
+  columnCount: number;
+  message?: string;
+}
+
+// ─────────────────────────────────────────
 // JWT Payload
 // ─────────────────────────────────────────
 
 export interface JwtAccessPayload {
-  sub: string;       // userId
+  sub: string;
   email: string;
   role: UserRole;
   iat?: number;
@@ -94,7 +192,7 @@ export interface JwtAccessPayload {
 }
 
 // ─────────────────────────────────────────
-// API Error envelope
+// API Error Envelope
 // ─────────────────────────────────────────
 
 export interface ApiErrorResponse {

@@ -6,7 +6,7 @@
     "token_expired": "会话已过期",
     "token_invalid": "无效 token",
     "refresh_token_missing": "缺少 Refresh Token",
-    "too_many_requests": "请求过多。请60秒后再试",
+    "too_many_requests": "请求过多。请60秒<ctrl42>gỡ试",
     "forbidden_role": "无权操作。权限不足"
   },
   "common": {
@@ -16,5 +16,17 @@
   "admin": {
     "user_not_found": "未找到用户",
     "role_updated": "用户角色更新成功"
+  },
+  "datasource": {
+    "test_success": "连接测试成功！",
+    "test_failed": "连接测试失败：",
+    "not_found": "未找到数据源",
+    "created": "创建数据源成功",
+    "updated": "更新数据源成功",
+    "deleted": "删除数据源成功"
+  },
+  "schema": {
+    "sync_success": "Schema同步成功",
+    "sync_failed": "Schema同步失败"
   }
 }
