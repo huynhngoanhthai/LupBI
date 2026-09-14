@@ -20,38 +20,25 @@ services:
       timeout: 5s
       retries: 5
 
-  # 2. Backend NestJS API Service
-  api:
+  # 2. Monorepo App Service (Khởi chạy đồng thời cả API và Web)
+  app:
     build:
       context: .
-      dockerfile: apps/api/Dockerfile
-    container_name: lupbi-api
+      dockerfile: Dockerfile
+    container_name: lupbi-app
     restart: always
     environment:
-      PORT: 3001
+      PORT: 3000
       DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-lupbi_db}?schema=public
       JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-lupbi_jwt_access_secret_key_development_2026}
       JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-lupbi_jwt_refresh_secret_key_development_2026}
+      NEXT_PUBLIC_API_URL: http://localhost:3001
     ports:
+      - '3000:3000'
       - '3001:3001'
     depends_on:
       postgres:
         condition: service_healthy
-
-  # 3. Frontend Next.js Web Service
-  web:
-    build:
-      context: .
-      dockerfile: apps/web/Dockerfile
-    container_name: lupbi-web
-    restart: always
-    environment:
-      PORT: 3000
-      NEXT_PUBLIC_API_URL: http://localhost:3001
-    ports:
-      - '3000:3000'
-    depends_on:
-      - api
 
 volumes:
   postgres_data:
