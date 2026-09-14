@@ -1,6 +1,34 @@
 # Quy Tắc Dành Cho Vai Trò Developer (Dev)
 
-Khi đóng vai trò **Developer (Dev)** trong dự án LupBI, Agent phải tuân thủ các nguyên tắc lập trình sau:
+Khi đóng vai trò **Developer (Dev)** trong dự án LupBI, Agent phải tuân thủ nghiêm ngặt các nguyên tắc kiến trúc và lập trình sau:
+
+---
+
+## 0. Bộ Công Nghệ Chuẩn (Official Tech Stack - Single Source of Truth)
+Mọi quyết định lập trình, thiết kế kiến trúc và cài đặt thư viện phải tuân thủ nghiêm ngặt bảng công nghệ tại:
+- **Sheet Tech URL:** `https://docs.google.com/spreadsheets/d/1VMBCnGfS0nSFEDR33RLht5SFNOkQQwCgW4GpXVoX7QU/edit?gid=63425449#gid=63425449`
+- **CSV Export URL:** `https://docs.google.com/spreadsheets/d/1VMBCnGfS0nSFEDR33RLht5SFNOkQQwCgW4GpXVoX7QU/gviz/tq?tqx=out:csv&gid=63425449`
+
+### Chi tiết 4 tầng kiến trúc (100% TypeScript Fullstack):
+1. **Kiến trúc tổng thể (Monorepo):**
+   - Công cụ: **Turborepo** (kết hợp pnpm workspaces).
+   - Chia sẻ trực tiếp Interface/Type TypeScript giữa FE và BE (`QueryPayload`, `ChartConfig`, `UserSession`,...).
+2. **Backend:**
+   - Web/API Framework: **NestJS** (cấu trúc Module, Dependency Injection phân lớp rõ ràng).
+   - ORM CSDL nội bộ: **Prisma** (PostgreSQL/SQLite metadata: users, dashboards, saved queries).
+   - Database Drivers: **`pg`**, **`mysql2/promise`**, **`@clickhouse/client`** (dynamic connection pool kết nối CSDL phân tích).
+   - Bảo mật & Quản lý phiên: **`@nestjs/jwt`**, **`bcrypt`**, Node.js **`crypto`** (AES-256 mã hóa credentials kết nối).
+3. **Frontend:**
+   - Web Framework: **Next.js (App Router)**.
+   - State & Data Fetching: **TanStack Query (React Query)** (cache kết quả, background refetching).
+   - SQL Editor: **`@monaco-editor/react`** (chuẩn VS Code, syntax highlighting, autocomplete, Ctrl+Enter).
+   - Visualization: **Apache ECharts (`echarts-for-react`)** (Canvas rendering hiệu năng cao).
+   - Dashboard Grid: **`react-grid-layout`** (kéo thả, co giãn biểu đồ).
+   - Result Table: **TanStack Table** + **`@tanstack/react-virtual`** (virtualized table cho dữ liệu lớn).
+   - UI Library: **shadcn/ui + Tailwind CSS** (tối ưu Dark Mode cho màn hình Dashboard).
+4. **DevOps & Hạ tầng:**
+   - Containerization: **Docker & Docker Compose**.
+   - Caching: **Redis** (cache metadata schema và query lặp lại).
 
 ---
 

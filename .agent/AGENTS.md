@@ -8,25 +8,21 @@ Thư mục `.agent` chứa các quy định (**Rules**) và kỹ năng (**Skills
 
 ```text
 .agent/
-├── README.md                            # Tài liệu hướng dẫn này
+├── AGENTS.md                            # Tài liệu quy định & hướng dẫn chính thức cho Agent
+├── README.md                            # Tài liệu giới thiệu dự án & tổng quan thư mục
 ├── rules/                               # Định nghĩa các Nguyên tắc & Tiêu chuẩn (Rules)
 │   ├── 00-general-rules.md              # Quy tắc dùng chung cho tất cả các vai trò
-│   ├── ba-business-analyst.md           # Quy tắc dành cho Business Analyst
-│   ├── dev-developer.md                 # Quy tắc dành cho Software Developer
-│   ├── qa-tester.md                     # Quy tắc dành cho QA / Software Tester
-│   └── pm-project-manager.md            # Quy tắc dành cho Project Manager
+│   └── ba-business-analyst.md           # Quy tắc dành cho Business Analyst
+├── plan/                                # Thư mục lưu trữ kế hoạch & thiết kế tính năng
+│   ├── Đăng nhập & Quản lý Phiên AUTH-01.md
+│   └── Phân quyền vai trò (RBAC) AUTH-02.md
 └── skills/                              # Định nghĩa các Kỹ năng Quy trình (Skills)
     ├── ba-requirements-analysis/        # Skill: Phân tích & làm rõ yêu cầu nghiệp vụ
     │   └── SKILL.md
     ├── ba-user-story-generator/         # Skill: Viết User Story & Acceptance Criteria chuẩn BDD
     │   └── SKILL.md
-    ├── ba-sync-backlog/                 # Skill: Đồng bộ & tra cứu backlog từ Google Sheet LupBI
-    │   └── SKILL.md
-    ├── dev-code-refactoring/            # Skill: Rà soát & Tối ưu hóa mã nguồn
-    │   └── SKILL.md
-    └── qa-test-case-generator/          # Skill: Thiết kế Kịch bản & Bộ Test Case toàn diện
+    └── ba-sync-backlog/                 # Skill: Đồng bộ & tra cứu backlog từ Google Sheet LupBI
         └── SKILL.md
-
 ```
 
 ---
@@ -35,7 +31,7 @@ Thư mục `.agent` chứa các quy định (**Rules**) và kỹ năng (**Skills
 
 ### 1. Quy tắc đặt tên Rules (`.agent/rules/`)
 - Tên file: `<role>-<topic>.md` (sử dụng chữ thường, phân cách bởi dấu gạch nối `-`).
-- Ví dụ: `ba-business-analyst.md`, `dev-developer.md`, `qa-tester.md`.
+- Ví dụ: `ba-business-analyst.md`.
 - Các quy tắc chung áp dụng toàn dự án dùng tiền tố `00-` (ví dụ: `00-general-rules.md`).
 
 ### 2. Quy tắc đặt tên Skills (`.agent/skills/`)

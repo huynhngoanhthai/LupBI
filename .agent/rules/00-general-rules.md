@@ -19,9 +19,12 @@ Mọi Agent hoạt động trong repository **LupBI** phải tuân thủ nghiêm
 ## 4. Bảo Mật & An Toàn Dữ Liệu
 - Không lưu trữ hoặc tiết lộ mật khẩu, API token, secret keys hoặc dữ liệu nhạy cảm trong codebase và tài liệu.
 
-## 5. Nguồn Dữ Liệu Backlog Tính Năng (Single Source of Truth)
-- Mọi yêu cầu tính năng, ưu tiên (P0, P1, P2) và mô tả chi tiết của dự án LupBI được quản lý chính thức tại Google Sheet:
-  `https://docs.google.com/spreadsheets/d/1VMBCnGfS0nSFEDR33RLht5SFNOkQQwCgW4GpXVoX7QU/edit?gid=869821249#gid=869821249`
-- Đọc dữ liệu cập nhật mới nhất qua đường dẫn CSV Export:
-  `https://docs.google.com/spreadsheets/d/1VMBCnGfS0nSFEDR33RLht5SFNOkQQwCgW4GpXVoX7QU/gviz/tq?tqx=out:csv&gid=869821249`
+## 5. Nguồn Dữ Liệu Dự Án (Single Source of Truth)
+- **Backlog & Danh sách Tính năng:**
+  - URL: `https://docs.google.com/spreadsheets/d/1VMBCnGfS0nSFEDR33RLht5SFNOkQQwCgW4GpXVoX7QU/edit?gid=869821249#gid=869821249`
+  - CSV Export: `https://docs.google.com/spreadsheets/d/1VMBCnGfS0nSFEDR33RLht5SFNOkQQwCgW4GpXVoX7QU/gviz/tq?tqx=out:csv&gid=869821249`
+- **Bộ Công Nghệ Chuẩn (Tech Stack):**
+  - URL: `https://docs.google.com/spreadsheets/d/1VMBCnGfS0nSFEDR33RLht5SFNOkQQwCgW4GpXVoX7QU/edit?gid=63425449#gid=63425449`
+  - CSV Export: `https://docs.google.com/spreadsheets/d/1VMBCnGfS0nSFEDR33RLht5SFNOkQQwCgW4GpXVoX7QU/gviz/tq?tqx=out:csv&gid=63425449`
+
 
