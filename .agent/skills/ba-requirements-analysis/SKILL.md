@@ -1,12 +1,12 @@
 ---
 name: ba-requirements-analysis
 description: >-
-  Kích hoạt kỹ năng này khi người dùng yêu cầu phân tích, thu thập hoặc làm rõ yêu cầu nghiệp vụ, tính năng mới hoặc bài toán BI/Báo cáo cho hệ thống LupBI.
+  Kích hoạt kỹ năng này khi người dùng yêu cầu phân tích, thu thập hoặc làm rõ yêu cầu nghiệp vụ, tính năng mới hoặc bài toán BI/Báo cáo cho hệ thống LupBI (bao gồm kịch bản kiểm thử Release Candidate - RC).
 ---
 
 # Kỹ Năng Phân Tích & Làm Rõ Yêu Cầu Nghiệp Vụ (BA Requirements Analysis)
 
-Kỹ năng này hướng dẫn Agent các bước thực hiện phân tích bài toán nghiệp vụ từ ý tưởng thô thành tài liệu yêu cầu hoàn chỉnh cho dự án LupBI.
+Kỹ năng này hướng dẫn Agent các bước thực hiện phân tích bài toán nghiệp vụ từ ý tưởng thô thành tài liệu yêu cầu hoàn chỉnh cho dự án LupBI, bao gồm các bước kiểm thử nghiệm thu bản **Release Candidate (RC)**.
 
 ---
 
@@ -26,12 +26,19 @@ Kỹ năng này hướng dẫn Agent các bước thực hiện phân tích bài
 ### Bước 3: Chuẩn Hóa Kết Quả Thành Tài Liệu
 Xuất ra kết quả phân tích theo mẫu chuẩn:
 - **Tóm tắt tổng quan**
-- **Sơ đồ luồng nghiệp vụ (Mermaid Flowchart)**
+- **Sơ đồ luồng nghiệp vụ (Mermaid Flowchart / Sequence Diagram)**
 - **Danh sách yêu cầu chức năng & phi chức năng**
-- **Danh sách các câu hỏi / điểm cần làm rõ (Open Questions)**
+- **User Story & Acceptance Criteria (BDD)**
+- **Task breakdown cho Frontend & Backend**
 
----
+### Bước 4: Thiết Kế Các Bước Kiểm Thử Release Candidate (RC Testing & Verification Steps)
+Đưa ra kịch bản kiểm thử nghiệm thu cho phiên bản RC trước khi release production:
+1. **RC Pre-conditions Check:** Kiểm tra môi trường staging/RC, dữ liệu test và cấu hình biến môi trường.
+2. **RC Test Execution Matrix:** Bảng danh sách các kịch bản kiểm thử nghiệm thu (Test Steps, Expected Behavior, Sign-off Status).
+3. **Regression & Smoke Test Cases:** Các bước smoke test nhanh để đảm bảo tính năng không làm gãy các luồng hiện tại.
+4. **RC Rollback Criteria:** Tiêu chí và các bước hủy bản RC nếu phát hiện lỗi nghiêm trọng (Blocker/Critical).
 
-## Kiểm Tra Chất Lượng (Verification)
-- Đảm bảo không còn điểm mơ hồ (ambiguity).
-- Kiểm tra tính khả thi kỹ thuật sơ bộ cùng với các mô tả của Dev.
+### Bước 5: Lưu Tệp Kế Hoạch Chi Tiết (Plan Storage)
+- Tạo và lưu tệp tài liệu tại đường dẫn: `.agent/plan/<Tên tính năng> <Mã tính năng>.md`
+- Ví dụ: `.agent/plan/Đăng nhập & Quản lý Phiên AUTH-01.md`
+- Ghi nhận đầy đủ thông tin phân tích & kịch bản kiểm thử RC để phục vụ Dev và QA.

@@ -20,10 +20,13 @@ Thư mục `.agent` chứa các quy định (**Rules**) và kỹ năng (**Skills
     │   └── SKILL.md
     ├── ba-user-story-generator/         # Skill: Viết User Story & Acceptance Criteria chuẩn BDD
     │   └── SKILL.md
+    ├── ba-sync-backlog/                 # Skill: Đồng bộ & tra cứu backlog từ Google Sheet LupBI
+    │   └── SKILL.md
     ├── dev-code-refactoring/            # Skill: Rà soát & Tối ưu hóa mã nguồn
     │   └── SKILL.md
     └── qa-test-case-generator/          # Skill: Thiết kế Kịch bản & Bộ Test Case toàn diện
         └── SKILL.md
+
 ```
 
 ---

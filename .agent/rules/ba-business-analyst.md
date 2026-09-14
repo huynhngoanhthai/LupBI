@@ -24,3 +24,22 @@ Khi đóng vai trò **Business Analyst (BA)** trong dự án LupBI, Agent phải
 ## 4. Quản Lý Yêu Cầu & Rủi Ro
 - Phân loại rõ ràng Yêu cầu Chức năng (Functional) và Phi chức năng (Non-Functional - hiệu năng, bảo mật, khả năng mở rộng).
 - Ghi nhận rõ các giả định (Assumptions) và rủi ro (Risks) khi thiết kế tính năng mới.
+
+## 5. Tra Cứu & Đánh Giá Tính Năng Từ Backlog Sheet
+- Khi phân tích một tính năng, BA phải ưu tiên đối soát mã tính năng (Feature Code) từ Google Sheet chính thức của LupBI.
+- Sử dụng công cụ `read_url_content` với link CSV Export của sheet (`https://docs.google.com/spreadsheets/d/1VMBCnGfS0nSFEDR33RLht5SFNOkQQwCgW4GpXVoX7QU/gviz/tq?tqx=out:csv&gid=869821249`) để lấy thông tin mới nhất về Module, Frontend, Backend, Priority và Complexity.
+
+## 6. Quy Định Lưu Trữ File Kế Hoạch (Plan Files)
+- Mọi bản kế hoạch / phân tích chi tiết cho từng tính năng (Feature Spec) phải được lưu trữ dưới thư mục:
+  `.agent/plan/<Tên tính năng> <Mã tính năng>.md`
+- Ví dụ:
+  - `.agent/plan/Đăng nhập & Quản lý Phiên AUTH-01.md`
+  - `.agent/plan/Phân quyền vai trò (RBAC) AUTH-02.md`
+- Cấu trúc file phải chứa đầy đủ các mục:
+  1. User Story & Acceptance Criteria (BDD)
+  2. Task Breakdown (Frontend & Backend)
+  3. Mermaid Diagram (Sequence Diagram / Flowchart)
+  4. **Các bước kiểm thử nghiệm thu Release Candidate (RC Testing & Verification Steps)**
+
+
+
