@@ -1,0 +1,20 @@
+{
+  "auth": {
+    "login_success": "Đăng nhập thành công",
+    "invalid_credentials": "Tên đăng nhập hoặc mật khẩu không chính xác",
+    "account_inactive": "Tài khoản đã bị vô hiệu hóa",
+    "token_expired": "Phiên đăng nhập đã hết hạn",
+    "token_invalid": "Token không hợp lệ",
+    "refresh_token_missing": "Refresh Token không tồn tại",
+    "too_many_requests": "Thao tác quá nhiều lần. Vui lòng thử lại sau 60 giây",
+    "forbidden_role": "Bạn không có quyền thực hiện hành động này (Yêu cầu quyền phù hợp)"
+  },
+  "common": {
+    "server_error": "Lỗi hệ thống nội bộ",
+    "unauthorized": "Bạn chưa đăng nhập hoặc không có quyền truy cập"
+  },
+  "admin": {
+    "user_not_found": "Không tìm thấy người dùng",
+    "role_updated": "Cập nhật vai trò người dùng thành công"
+  }
+}

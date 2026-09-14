@@ -18,7 +18,13 @@ Kỹ năng này hướng dẫn Developer (Dev) trong dự án **LupBI** cách ti
 4. **Kiểm Soát Hiệu Năng & Triệt Tiêu Lỗi N+1 Query (Zero N+1 Query & High-Volume Safe):**
    - **Tuyệt đối cấm lỗi N+1:** Nghiêm cấm thực thi câu query database bên trong vòng lặp (`for`, `forEach`, `map`). Luôn sử dụng Eager Loading (`include`/`select` trong Prisma), JOIN hoặc DataLoader/batching.
    - **Sẵn sàng cho dữ liệu lớn:** Thiết kế phân trang (cursor/offset) và giới hạn `limit/take` tối đa ở API; áp dụng Virtual Scrolling ở Frontend để giao diện không bị giật lag khi hiển thị dữ liệu lớn.
-5. **Kiên Trì Đến Cùng (`/goal` Execution):** Giải quyết dứt điểm toàn bộ task trong checklist, tự sửa lỗi build/lint, không dừng lại giữa chừng khi tính năng chưa hoàn chỉnh.
+5. **Chuẩn Hóa Đa Ngôn Ngữ (i18n Mandate - Default: Tiếng Việt):**
+   - **Nguồn dịch thuật:** Tất cả thông báo lỗi API, nhãn giao diện UI và văn bản hiển thị phải dùng i18n keys thay vì hardcode chuỗi ký tự. Ngôn ngữ mặc định là **Tiếng Việt (`vi`)**, hỗ trợ thêm **Anh (`en`)**, **Trung (`cn`)**,...
+   - **Cấu trúc thư mục:**
+     - Backend i18n: `./i18n/api/` (chứa `translate.csv`, `vi.json`, `en.json`, `cn.json`,...)
+     - Frontend i18n: `./i18n/web/` (chứa `translate.csv`, `vi.json`, `en.json`, `cn.json`,...)
+   - **Tự động hóa phân tách:** Mỗi khi cập nhật file `translate.csv`, chạy lệnh `pnpm i18n:split` để tự động tách các cột ngôn ngữ thành các file JSON tương ứng.
+6. **Kiên Trì Đến Cùng (`/goal` Execution):** Giải quyết dứt điểm toàn bộ task trong checklist, tự sửa lỗi build/lint, không dừng lại giữa chừng khi tính năng chưa hoàn chỉnh.
 
 ---
 

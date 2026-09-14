@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "LupBI - Smart Business Intelligence"
+  },
+  "auth": {
+    "login_title": "Login to LupBI",
+    "login_subtitle": "Smart Data Analytics — Turn data into decisions",
+    "email_label": "Email",
+    "email_placeholder": "admin@lupbi.com",
+    "password_label": "Password",
+    "password_placeholder": "••••••••",
+    "submit_button": "Login",
+    "submitting": "Logging in...",
+    "show_password": "Show password",
+    "hide_password": "Hide password",
+    "login_success_toast": "Login successful! Welcome back.",
+    "login_failed_toast": "Login failed."
+  },
+  "dashboard": {
+    "welcome": "Welcome back",
+    "logout": "Logout",
+    "dev_notice": "Dashboard is under development. Full features will be in the next sprint."
+  },
+  "rbac": {
+    "admin_section": "User & Role Management (RBAC)",
+    "creator_action": "New Query (Creator/Admin)",
+    "viewer_badge": "View Mode (Viewer)",
+    "role_label": "Role",
+    "actions": "Actions",
+    "forbidden_alert": "You do not have permission to access this feature!"
+  },
+  "language": {
+    "select_label": "Language"
+  }
+}

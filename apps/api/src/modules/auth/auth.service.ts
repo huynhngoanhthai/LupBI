@@ -4,6 +4,7 @@ import {
   ForbiddenException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { I18nContext } from 'nestjs-i18n';
 import * as bcrypt from 'bcrypt';
 import {
   LoginResponseDto,
@@ -16,7 +17,6 @@ import {
 import { PrismaService } from '../../prisma/prisma.service';
 import { LoginDto } from './dto/login.dto';
 
-// Thời hạn cookie Refresh Token
 const REFRESH_TOKEN_TTL_MS = 7 * 24 * 60 * 60 * 1000; // 7 ngày
 
 @Injectable()
@@ -26,9 +26,11 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  // ─── LOGIN ────────────────────────────────────────────────────────────────
+  // ─── LOGIN (AUTH-01) ──────────────────────────────────────────────────────
 
   async login(dto: LoginDto): Promise<{ response: LoginResponseDto; refreshToken: string }> {
+    const i18n = I18nContext.current();
+
     // ✅ Zero N+1: 1 query duy nhất lấy user theo email
     const user = await this.prisma.user.findUnique({
       where: { email: dto.email },
@@ -44,7 +46,7 @@ export class AuthService {
 
     if (!user || !user.isActive) {
       throw new UnauthorizedException({
-        message: 'Tên đăng nhập hoặc mật khẩu không chính xác',
+        message: i18n?.translate('auth.invalid_credentials') ?? 'Tên đăng nhập hoặc mật khẩu không chính xác',
         code: AuthErrorCode.INVALID_CREDENTIALS,
       });
     }
@@ -52,7 +54,7 @@ export class AuthService {
     const isPasswordValid = await bcrypt.compare(dto.password, user.passwordHash);
     if (!isPasswordValid) {
       throw new UnauthorizedException({
-        message: 'Tên đăng nhập hoặc mật khẩu không chính xác',
+        message: i18n?.translate('auth.invalid_credentials') ?? 'Tên đăng nhập hoặc mật khẩu không chính xác',
         code: AuthErrorCode.INVALID_CREDENTIALS,
       });
     }
@@ -77,12 +79,14 @@ export class AuthService {
     };
   }
 
-  // ─── REFRESH ──────────────────────────────────────────────────────────────
+  // ─── REFRESH (AUTH-01) ───────────────────────────────────────────────────
 
   async refresh(refreshToken: string | undefined): Promise<RefreshResponseDto> {
+    const i18n = I18nContext.current();
+
     if (!refreshToken) {
       throw new UnauthorizedException({
-        message: 'Refresh Token không tồn tại',
+        message: i18n?.translate('auth.refresh_token_missing') ?? 'Refresh Token không tồn tại',
         code: AuthErrorCode.REFRESH_TOKEN_MISSING,
       });
     }
@@ -94,7 +98,7 @@ export class AuthService {
       });
     } catch {
       throw new ForbiddenException({
-        message: 'Refresh Token không hợp lệ hoặc đã hết hạn',
+        message: i18n?.translate('auth.token_invalid') ?? 'Refresh Token không hợp lệ hoặc đã hết hạn',
         code: AuthErrorCode.TOKEN_INVALID,
       });
     }
@@ -107,7 +111,7 @@ export class AuthService {
 
     if (!user || !user.isActive) {
       throw new UnauthorizedException({
-        message: 'Tài khoản không tồn tại hoặc đã bị vô hiệu hóa',
+        message: i18n?.translate('auth.account_inactive') ?? 'Tài khoản không tồn tại hoặc đã bị vô hiệu hóa',
         code: AuthErrorCode.ACCOUNT_INACTIVE,
       });
     }
@@ -121,7 +125,7 @@ export class AuthService {
     return { accessToken };
   }
 
-  // ─── ME ───────────────────────────────────────────────────────────────────
+  // ─── ME (AUTH-01) ────────────────────────────────────────────────────────
 
   async getMe(userId: string): Promise<MeResponseDto> {
     // ✅ Zero N+1: select cụ thể các cột cần thiết
@@ -175,7 +179,7 @@ export class AuthService {
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax' as const,
       maxAge: REFRESH_TOKEN_TTL_MS,
-      path: '/api/v1/auth', // Chỉ gửi cookie khi request đến /api/v1/auth
+      path: '/api/v1/auth',
     };
   }
 }

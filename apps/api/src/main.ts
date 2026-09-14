@@ -2,12 +2,16 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import cookieParser from 'cookie-parser';
 import { AppModule } from './app.module';
+import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   // Cookie parsing
   app.use(cookieParser());
+
+  // Global Exception Filter - Lưu log lỗi chi tiết ra file /logs theo ngày
+  app.useGlobalFilters(new AllExceptionsFilter());
 
   // Global DTO validation
   app.useGlobalPipes(

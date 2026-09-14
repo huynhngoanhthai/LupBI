@@ -60,3 +60,13 @@ Mọi quyết định lập trình, thiết kế kiến trúc và cài đặt th
   - Áp đặt giới hạn `maxLimit` (ví dụ: `take <= 1000`) để tránh tràn RAM server (OOM).
 - **Kiểm thử hiệu năng:** Bắt buộc viết test case giả lập dữ liệu lớn và audit log query để đảm bảo số câu query là hằng số \(O(1)\).
 
+## 6. Quy Định Đa Ngôn Ngữ (i18n Standard - Default: Tiếng Việt)
+- **Cấu trúc lưu trữ:**
+  - Backend: `./i18n/api/translate.csv` và các file ngôn ngữ đầu ra (`vi.json`, `en.json`, `cn.json`,...).
+  - Frontend: `./i18n/web/translate.csv` và các file ngôn ngữ đầu ra (`vi.json`, `en.json`, `cn.json`,...).
+- **Quy trình cập nhật:**
+  - Ngôn ngữ mặc định của ứng dụng là **Tiếng Việt (`vi`)**.
+  - Khi thêm/sửa nhãn hoặc thông báo lỗi mới, Developer ghi vào `translate.csv` tương ứng và thực thi lệnh `pnpm i18n:split` để đồng bộ ra các file `.json`.
+  - Không hardcode chuỗi ký tự hiển thị trực tiếp trong mã nguồn FE hay BE.
+
+

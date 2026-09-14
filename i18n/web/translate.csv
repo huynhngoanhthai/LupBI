@@ -1,0 +1,24 @@
+key,vi,en,cn
+app.title,LupBI - Phân tích dữ liệu thông minh,LupBI - Smart Business Intelligence,LupBI - 智能商业分析
+auth.login_title,Đăng nhập vào LupBI,Login to LupBI,登录 LupBI
+auth.login_subtitle,Phân tích dữ liệu thông minh — Biến số liệu thành quyết định,Smart Data Analytics — Turn data into decisions,智能数据分析 — 将数据转化为决策
+auth.email_label,Email,Email,电子邮箱
+auth.email_placeholder,admin@lupbi.com,admin@lupbi.com,admin@lupbi.com
+auth.password_label,Mật khẩu,Password,密码
+auth.password_placeholder,••••••••,••••••••,••••••••
+auth.submit_button,Đăng nhập,Login,登录
+auth.submitting,Đăng nhập...,Logging in...,登录中...
+auth.show_password,Hiện mật khẩu,Show password,显示密码
+auth.hide_password,Ẩn mật khẩu,Hide password,隐藏密码
+auth.login_success_toast,Đăng nhập thành công! Chào mừng trở lại.,Login successful! Welcome back.,登录成功！欢迎回来。
+auth.login_failed_toast,Đăng nhập thất bại.,Login failed.,登录失败。
+dashboard.welcome,Chào mừng trở lại,Welcome back,欢迎回来
+dashboard.logout,Đăng xuất,Logout,退出登录
+dashboard.dev_notice,Dashboard đang được phát triển. Tính năng đầy đủ sẽ có trong sprint tiếp theo.,Dashboard is under development. Full features will be in the next sprint.,仪表板正在开发中。完整功能将在下一个冲刺中提供。
+rbac.admin_section,Quản lý Người dùng & Phân quyền (RBAC),User & Role Management (RBAC),用户与权限管理 (RBAC)
+rbac.creator_action,Tạo Query Mới (Creator/Admin),New Query (Creator/Admin),新建查询 (Creator/Admin)
+rbac.viewer_badge,Chế độ Xem (Viewer),View Mode (Viewer),查看模式 (Viewer)
+rbac.role_label,Vai trò,Role,角色
+rbac.actions,Thao tác,Actions,操作
+rbac.forbidden_alert,Bạn không có quyền truy cập chức năng này!,You do not have permission to access this feature!,您没有权限访问此功能！
+language.select_label,Ngôn ngữ,Language,语言

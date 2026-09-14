@@ -16,7 +16,9 @@ Thư mục `.agent` là trung tâm điều hướng, quản trị quy trình và
 │   └── qa-tester.md                     # Quy tắc cho QA / Tester
 ├── plan/                                # Thư mục lưu trữ kế hoạch & thiết kế tính năng
 │   ├── Đăng nhập & Quản lý Phiên AUTH-01.md
-│   └── Phân quyền vai trò (RBAC) AUTH-02.md
+│   ├── Phân quyền vai trò (RBAC) AUTH-02.md
+│   ├── Quản lý kết nối Database CONN-01.md
+│   └── Đồng bộ Schema & Metadata CONN-02.md
 └── skills/                              # Thư mục định nghĩa Kỹ năng Quy trình (Skills)
     ├── ba-requirements-analysis/        # Skill BA: Khai phá yêu cầu, kịch bản RC & khung % tiến độ
     │   └── SKILL.md

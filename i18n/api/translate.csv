@@ -1,0 +1,13 @@
+key,vi,en,cn
+auth.login_success,Đăng nhập thành công,Login successful,登录成功
+auth.invalid_credentials,Tên đăng nhập hoặc mật khẩu không chính xác,Invalid email or password,用户名或密码错误
+auth.account_inactive,Tài khoản đã bị vô hiệu hóa,Account is inactive,账号已被禁用
+auth.token_expired,Phiên đăng nhập đã hết hạn,Session expired,会话已过期
+auth.token_invalid,Token không hợp lệ,Invalid token,无效 token
+auth.refresh_token_missing,Refresh Token không tồn tại,Refresh token is missing,缺少 Refresh Token
+auth.too_many_requests,Thao tác quá nhiều lần. Vui lòng thử lại sau 60 giây,Too many requests. Please try again in 60 seconds,请求过多。请60秒后再试
+auth.forbidden_role,Bạn không có quyền thực hiện hành động này (Yêu cầu quyền phù hợp),Forbidden. You do not have permission for this action,无权操作。权限不足
+common.server_error,Lỗi hệ thống nội bộ,Internal server error,内部服务器错误
+common.unauthorized,Bạn chưa đăng nhập hoặc không có quyền truy cập,Unauthorized access,未授权访问
+admin.user_not_found,Không tìm thấy người dùng,User not found,未找到用户
+admin.role_updated,Cập nhật vai trò người dùng thành công,User role updated successfully,用户角色更新成功

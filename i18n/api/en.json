@@ -1,0 +1,20 @@
+{
+  "auth": {
+    "login_success": "Login successful",
+    "invalid_credentials": "Invalid email or password",
+    "account_inactive": "Account is inactive",
+    "token_expired": "Session expired",
+    "token_invalid": "Invalid token",
+    "refresh_token_missing": "Refresh token is missing",
+    "too_many_requests": "Too many requests. Please try again in 60 seconds",
+    "forbidden_role": "Forbidden. You do not have permission for this action"
+  },
+  "common": {
+    "server_error": "Internal server error",
+    "unauthorized": "Unauthorized access"
+  },
+  "admin": {
+    "user_not_found": "User not found",
+    "role_updated": "User role updated successfully"
+  }
+}

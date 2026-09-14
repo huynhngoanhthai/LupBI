@@ -16,7 +16,9 @@ Thư mục `.agent` chứa các quy định (**Rules**) và kỹ năng (**Skills
 │   └── qa-tester.md                     # Quy tắc dành cho QA / Tester
 ├── plan/                                # Thư mục lưu trữ kế hoạch & thiết kế tính năng
 │   ├── Đăng nhập & Quản lý Phiên AUTH-01.md
-│   └── Phân quyền vai trò (RBAC) AUTH-02.md
+│   ├── Phân quyền vai trò (RBAC) AUTH-02.md
+│   ├── Quản lý kết nối Database CONN-01.md
+│   └── Đồng bộ Schema & Metadata CONN-02.md
 └── skills/                              # Định nghĩa các Kỹ năng Quy trình (Skills)
     ├── ba-requirements-analysis/        # Skill: Phân tích nghiệp vụ, tạo kịch bản RC & khung tiến độ %
     │   └── SKILL.md

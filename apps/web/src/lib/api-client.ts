@@ -1,13 +1,12 @@
 /**
- * Axios instance với interceptor tự động refresh token.
- * - Request: gắn Authorization Bearer token từ localStorage
- * - Response: bắt 401 → gọi /auth/refresh → retry request gốc
+ * Axios instance với interceptor tự động refresh token và đính kèm ngôn ngữ (i18n x-lang header).
  */
 import axios, {
   AxiosError,
   AxiosRequestConfig,
   InternalAxiosRequestConfig,
 } from 'axios';
+import { useI18nStore } from '@/stores/i18n.store';
 
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
@@ -20,14 +19,19 @@ export const apiClient = axios.create({
   },
 });
 
-// ─── Request Interceptor: gắn Access Token ────────────────────────────────
+// ─── Request Interceptor: gắn Access Token & x-lang header ────────────────
 apiClient.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    // localStorage chỉ chạy được ở client side
     if (typeof window !== 'undefined') {
       const token = localStorage.getItem('lupbi_access_token');
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
+      }
+
+      // Đính kèm x-lang header cho Backend i18n
+      const currentLang = useI18nStore.getState().lang;
+      if (currentLang) {
+        config.headers['x-lang'] = currentLang;
       }
     }
     return config;
@@ -60,10 +64,8 @@ apiClient.interceptors.response.use(
       _retry?: boolean;
     };
 
-    // Chỉ xử lý 401 và chưa retry
     if (error.response?.status === 401 && !originalRequest._retry) {
       if (isRefreshing) {
-        // Nếu đang refresh, enqueue request vào hàng chờ
         return new Promise<string>((resolve, reject) => {
           failedQueue.push({ resolve, reject });
         })
@@ -82,7 +84,6 @@ apiClient.interceptors.response.use(
       isRefreshing = true;
 
       try {
-        // RC-04: Gọi endpoint refresh - cookie tự động gửi (withCredentials)
         const { data } = await apiClient.post<{ accessToken: string }>(
           '/api/v1/auth/refresh',
         );
@@ -102,7 +103,6 @@ apiClient.interceptors.response.use(
         return apiClient(originalRequest);
       } catch (refreshError) {
         processQueue(refreshError, null);
-        // Refresh thất bại → logout
         if (typeof window !== 'undefined') {
           localStorage.removeItem('lupbi_access_token');
           window.location.href = '/login';

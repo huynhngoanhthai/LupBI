@@ -2,25 +2,31 @@
 // Enums
 // ─────────────────────────────────────────
 
-export const UserRole = {
-  ADMIN: 'ADMIN',
-  CREATOR: 'CREATOR',
-  VIEWER: 'VIEWER',
-} as const;
-export type UserRole = (typeof UserRole)[keyof typeof UserRole];
+export enum UserRole {
+  ADMIN = 'ADMIN',
+  CREATOR = 'CREATOR',
+  VIEWER = 'VIEWER',
+}
 
-export const AuthErrorCode = {
-  INVALID_CREDENTIALS: 'INVALID_CREDENTIALS',
-  ACCOUNT_INACTIVE: 'ACCOUNT_INACTIVE',
-  TOKEN_EXPIRED: 'TOKEN_EXPIRED',
-  TOKEN_INVALID: 'TOKEN_INVALID',
-  REFRESH_TOKEN_MISSING: 'REFRESH_TOKEN_MISSING',
-  TOO_MANY_REQUESTS: 'TOO_MANY_REQUESTS',
-} as const;
-export type AuthErrorCode = (typeof AuthErrorCode)[keyof typeof AuthErrorCode];
+export enum AuthErrorCode {
+  INVALID_CREDENTIALS = 'INVALID_CREDENTIALS',
+  ACCOUNT_INACTIVE = 'ACCOUNT_INACTIVE',
+  TOKEN_EXPIRED = 'TOKEN_EXPIRED',
+  TOKEN_INVALID = 'TOKEN_INVALID',
+  REFRESH_TOKEN_MISSING = 'REFRESH_TOKEN_MISSING',
+  TOO_MANY_REQUESTS = 'TOO_MANY_REQUESTS',
+  FORBIDDEN_ROLE = 'FORBIDDEN_ROLE',
+}
 
 // ─────────────────────────────────────────
-// Auth DTOs / Interfaces
+// Supported Languages
+// ─────────────────────────────────────────
+
+export type SupportedLanguage = 'vi' | 'en' | 'cn';
+export const DEFAULT_LANGUAGE: SupportedLanguage = 'vi';
+
+// ─────────────────────────────────────────
+// Auth DTOs / Interfaces (AUTH-01)
 // ─────────────────────────────────────────
 
 /** POST /api/v1/auth/login - Request body */
@@ -59,7 +65,24 @@ export interface UserProfileDto {
 }
 
 // ─────────────────────────────────────────
-// JWT Payload (shared between BE sign and FE decode)
+// User Management DTOs (AUTH-02 RBAC)
+// ─────────────────────────────────────────
+
+export interface UserListItemDto {
+  id: string;
+  email: string;
+  fullName: string;
+  role: UserRole;
+  isActive: boolean;
+  createdAt: string;
+}
+
+export interface UpdateUserRoleDto {
+  role: UserRole;
+}
+
+// ─────────────────────────────────────────
+// JWT Payload
 // ─────────────────────────────────────────
 
 export interface JwtAccessPayload {

@@ -2,15 +2,18 @@
   "name": "lupbi",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "start": "turbo run start",
+    "build": "tsx scripts/console-logger.ts turbo run build",
+    "dev": "tsx scripts/console-logger.ts turbo run dev",
+    "start": "tsx scripts/console-logger.ts turbo run start",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
-    "test": "turbo run test"
+    "test": "turbo run test",
+    "i18n:split": "tsx scripts/split-i18n.ts",
+    "logs:clean": "tsx scripts/clean-logs.ts"
   },
   "devDependencies": {
     "turbo": "^2.3.3",
+    "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "@types/node": "^22.10.2"
   },

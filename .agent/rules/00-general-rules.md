@@ -27,4 +27,8 @@ Mọi Agent hoạt động trong repository **LupBI** phải tuân thủ nghiêm
   - URL: `https://docs.google.com/spreadsheets/d/1VMBCnGfS0nSFEDR33RLht5SFNOkQQwCgW4GpXVoX7QU/edit?gid=63425449#gid=63425449`
   - CSV Export: `https://docs.google.com/spreadsheets/d/1VMBCnGfS0nSFEDR33RLht5SFNOkQQwCgW4GpXVoX7QU/gviz/tq?tqx=out:csv&gid=63425449`
 
+## 6. Ưu Tiên Thư Viện UI Chuẩn (No Custom Pure Code)
+- **Tuyệt đối ưu tiên sử dụng thư viện UI chuẩn:** Sử dụng các thành phần UI có sẵn từ thư viện **Ant Design (`antd`)** và **Shadcn/UI** cho toàn bộ Frontend (`apps/web`).
+- **Nghiêm cấm viết component thuần tùy biến (Custom components) từ đầu:** Đối với Toast notification, Alert, Modal, Table, Form, Select, DatePicker,... bắt buộc tận dụng các component/API chuẩn từ thư viện (ví dụ: `message` / `notification` từ `antd`) thay vì tự tạo custom Zustand store hoặc HTML/CSS tùy biến.
+
 

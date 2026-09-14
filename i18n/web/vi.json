@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "LupBI - Phân tích dữ liệu thông minh"
+  },
+  "auth": {
+    "login_title": "Đăng nhập vào LupBI",
+    "login_subtitle": "Phân tích dữ liệu thông minh — Biến số liệu thành quyết định",
+    "email_label": "Email",
+    "email_placeholder": "admin@lupbi.com",
+    "password_label": "Mật khẩu",
+    "password_placeholder": "••••••••",
+    "submit_button": "Đăng nhập",
+    "submitting": "Đăng nhập...",
+    "show_password": "Hiện mật khẩu",
+    "hide_password": "Ẩn mật khẩu",
+    "login_success_toast": "Đăng nhập thành công! Chào mừng trở lại.",
+    "login_failed_toast": "Đăng nhập thất bại."
+  },
+  "dashboard": {
+    "welcome": "Chào mừng trở lại",
+    "logout": "Đăng xuất",
+    "dev_notice": "Dashboard đang được phát triển. Tính năng đầy đủ sẽ có trong sprint tiếp theo."
+  },
+  "rbac": {
+    "admin_section": "Quản lý Người dùng & Phân quyền (RBAC)",
+    "creator_action": "Tạo Query Mới (Creator/Admin)",
+    "viewer_badge": "Chế độ Xem (Viewer)",
+    "role_label": "Vai trò",
+    "actions": "Thao tác",
+    "forbidden_alert": "Bạn không có quyền truy cập chức năng này!"
+  },
+  "language": {
+    "select_label": "Ngôn ngữ"
+  }
+}

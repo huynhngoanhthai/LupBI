@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "LupBI - 智能商业分析"
+  },
+  "auth": {
+    "login_title": "登录 LupBI",
+    "login_subtitle": "智能数据分析 — 将数据转化为决策",
+    "email_label": "电子邮箱",
+    "email_placeholder": "admin@lupbi.com",
+    "password_label": "密码",
+    "password_placeholder": "••••••••",
+    "submit_button": "登录",
+    "submitting": "登录中...",
+    "show_password": "显示密码",
+    "hide_password": "隐藏密码",
+    "login_success_toast": "登录成功！欢迎回来。",
+    "login_failed_toast": "登录失败。"
+  },
+  "dashboard": {
+    "welcome": "欢迎回来",
+    "logout": "退出登录",
+    "dev_notice": "仪表板正在开发中。完整功能将在下一个冲刺中提供。"
+  },
+  "rbac": {
+    "admin_section": "用户与权限管理 (RBAC)",
+    "creator_action": "新建查询 (Creator/Admin)",
+    "viewer_badge": "查看模式 (Viewer)",
+    "role_label": "角色",
+    "actions": "操作",
+    "forbidden_alert": "您没有权限访问此功能！"
+  },
+  "language": {
+    "select_label": "语言"
+  }
+}
