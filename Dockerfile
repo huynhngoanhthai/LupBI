@@ -52,5 +52,5 @@ COPY --from=builder /app/apps/web/public ./apps/web/public
 
 EXPOSE 3000 3001
 
-# Mặc định khởi chạy ứng dụng Monorepo (chạy dev/prod server)
-CMD ["pnpm", "dev"]
+# Mặc định khởi chạy các ứng dụng đã build (API & Web) qua script start
+CMD ["pnpm", "start"]
