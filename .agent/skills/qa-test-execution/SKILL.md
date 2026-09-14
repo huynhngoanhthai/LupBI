@@ -31,9 +31,16 @@ Kỹ năng này hướng dẫn Agent đóng vai trò QA tiến hành thực thi 
 
 Cập nhật trực tiếp đoạn thông tin ở cuối file `.agent/plan/<Tên tính năng> <Mã tính năng>.md`:
 
-1. **Điền phần trăm hoàn thành (%) và trạng thái mới:**
-   - Ví dụ: `- **Tiến độ hoàn thành:** 80% (PASS 4/5 Scenarios)`
-   - Trạng thái: `RC Tested - Needs Fixes` hoặc `RC Approved - Ready for Prod`.
+1. **Điền phần trăm hoàn thành (%) và vẽ thanh tiến độ trực quan:**
+   - **Quy tắc vẽ thanh tiến độ:** Bắt buộc vẽ thanh tiến độ dạng `[===>----] X%` kèm tỷ lệ phần trăm. Mỗi ký tự đại diện cho tỷ lệ hoàn thành (với `=` hiển thị phần đã hoàn thành, `>` làm đầu tiến trình, `-` hiển thị phần chưa xong).
+   - Ví dụ:
+     - 0%: `[----------] 0%`
+     - 35%: `[===>------] 35%`
+     - 80%: `[=======>--] 80%`
+     - 100%: `[==========] 100%`
+   - **Cấu trúc cập nhật:**
+     - `- **Tiến độ hoàn thành:** [=======>--] 80% (PASS 4/5 Scenarios)`
+     - `- **Trạng thái:** RC Tested - Needs Fixes` hoặc `RC Approved - Ready for Prod`
 
 2. **Ghi nhận phản hồi chi tiết từ QA (Tester Notes) phân loại theo các nhóm vấn đề:**
    - 🔴 **Lỗi Nghiệp vụ (Business Logic Issues):** Logic xử lý sai so với AC/BRD.
@@ -52,7 +59,10 @@ Cập nhật trực tiếp đoạn thông tin ở cuối file `.agent/plan/<Tên
 
 ## 📊 Tiến Độ Hoàn Thành & Ghi Chú Nghiệm Thu (QA Sign-off & Feedback)
 
-- **Tiến độ hoàn thành:** `80%` (PASS 4/5 kịch bản RC) và vẽ UI [===>----] 80%
+- **Tiến độ hoàn thành:** `[=======>--] 80%` (PASS 4/5 kịch bản RC)
+- **UI:** `[=======>--] 80%`
+- **BE:** `[=========>-] 90%`
+- **DB:** `[==========] 100%`
 - **Trạng thái:** `RC Tested - Cần điều chỉnh lỗi UI & Speed`
 - **Ngày kiểm thử:** YYYY-MM-DD
 - **Người kiểm thử (QA):** AI Agent / Tester

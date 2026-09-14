@@ -45,17 +45,17 @@ Xuất ra kết quả phân tích theo mẫu chuẩn:
 
 ### Bước 5: Thêm Khung Tiến Độ & Ghi Chú Nghiệm Thu Ở Cuối File (Progress & Notes)
 
-Ở dòng cuối cùng của tài liệu kế hoạch, bắt buộc thêm khung theo dõi tiến độ hoàn thành (mặc định ban đầu 0%) và phần ghi chú dành cho QA:
+Ở dòng cuối cùng của tài liệu kế hoạch, bắt buộc thêm khung theo dõi tiến độ hoàn thành (mặc định ban đầu 0%) và bắt buộc **vẽ thanh tiến độ trực quan** theo định dạng `[===>----] X%` (với `=` là phần hoàn thành, `>` là đầu tiến trình, `-` là phần chưa xong):
 
 ```markdown
 ---
 
 ## 📊 Tiến Độ Hoàn Thành & Ghi Chú Nghiệm Thu (QA Sign-off & Feedback)
 
-- **Tiến độ hoàn thành:** `0%` (Chờ triển khai & kiểm thử)
-- **UI** `[===>----] 35%`
-- **BE** `[=====>---] 50%`
-- **DB** `[====>----] 43%`
+- **Tiến độ hoàn thành:** `[----------] 0%` (Chờ triển khai & kiểm thử)
+- **UI:** `[----------] 0%`
+- **BE:** `[----------] 0%`
+- **DB:** `[----------] 0%`
 - **Trạng thái:** `Ready for Dev`
 
 ### 📝 Ghi Chú & Nhận Xét Từ QA (Tester Notes)
