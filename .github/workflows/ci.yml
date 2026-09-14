@@ -29,13 +29,13 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Typecheck (TypeScript)
-        run: pnpm typecheck --if-present
+        run: pnpm typecheck
 
       - name: Lint (ESLint)
-        run: pnpm lint --if-present
+        run: pnpm lint
 
       - name: Test (Unit Tests)
-        run: pnpm test --if-present
+        run: pnpm test
 
       - name: Build Application
-        run: pnpm build --if-present
+        run: pnpm build
